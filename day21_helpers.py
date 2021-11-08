@@ -18,20 +18,6 @@ def parse_table(str_table):
        row_key1       int         int         int  
        row_key2       int         int         int  
        ...
-
-       table_items_dictionary = {
-                            row_key0: {
-                                col_header0: int,
-                                col_header1: int,
-                                col_header2: int,
-                                },
-
-                            row_key1: { 
-                                ... 
-                                },
-
-                            ...
-                            }
     """
     str_table_lst = str_table.splitlines()
     header_row = str_table_lst[0]
