@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+dayn=$1
+[ "$1" -lt "10" ] && dayn="0$1"
+echo "$dayn"
+
+[[ ! $1 =~ [0-9]+ ]] && echo "Invalid day" && exit
+[ ! -d "day$dayn" ] && mkdir day$dayn && echo "Created directory day$dayn"
+[ ! -f "day$dayn/solution.py" ] && cp template.py day$dayn/solution.py && echo "Created solution.py"
+
+echo "https://adventofcode.com/2015/day/${1}/input"
+
+
+curl -ssv --cookie "session=$seesion_cookie" \
+  "https://adventofcode.com/2015/day/$1/input" \
+  2> /dev/null > day${dayn}/inp.txt
